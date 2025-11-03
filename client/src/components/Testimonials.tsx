@@ -6,7 +6,7 @@ export default function Testimonials() {
     {
       name: "Maria Ionescu",
       course: "Categoria B",
-      text: "Instructorii sunt foarte profesioniști și răbdători. Am reușit să iau permisul din prima încercare! Recomand cu mare încredere X-Drive.",
+      text: "Instructorii sunt foarte profesioniști și răbdători. Am reușit să iau permisul din prima încercare! Recomand cu mare încredere Scoala de soferi Auto Speed.",
       rating: 5
     },
     {

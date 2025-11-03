@@ -29,7 +29,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Despre X-Drive
+            Despre Scoala de soferi Auto Speed
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Școala ta de încredere pentru obținerea permisului de conducere
@@ -39,7 +39,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
           <div className="space-y-6">
             <p className="text-base md:text-lg text-foreground leading-relaxed">
-              Cu peste 5 ani de experiență în domeniul educației rutiere, <strong>X-Drive</strong> este alegerea perfectă pentru cei care doresc să învețe să conducă într-un mediu sigur și profesional.
+              Cu peste 5 ani de experiență în domeniul educației rutiere, <strong>Scoala de soferi Auto Speed</strong> este alegerea perfectă pentru cei care doresc să învețe să conducă într-un mediu sigur și profesional.
             </p>
             
             <p className="text-base md:text-lg text-foreground leading-relaxed">

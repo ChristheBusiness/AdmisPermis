@@ -48,19 +48,19 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Adresă",
-      content: "Strada Preot Sebe Costin 48, Chiajna, Romania"
+      content: "B-dul Uverturii nr. 98 Sector 6"
     },
     {
       icon: Phone,
       title: "Telefon",
-      content: "+40 724 111 987",
-      link: "tel:+40724111987"
+      content: "+40 785 125 125",
+      link: "tel:+40785125125"
     },
     {
       icon: Mail,
       title: "Email",
-      content: "contact@scoaladesoferixdrive.ro",
-      link: "mailto:contact@scoaladesoferixdrive.ro"
+      content: "autospeeddrive@yahoo.com",
+      link: "mailto:autospeeddrive@yahoo.com"
     },
     {
       icon: Clock,
@@ -208,27 +208,27 @@ export default function Contact() {
               </h4>
               <div className="flex gap-3">
                 <a
-                  href="https://www.facebook.com/scoaladesoferixdrive"
+                  href="https://www.facebook.com/autospeeddrive"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="X-Drive Facebook"
-                  title="X-Drive Facebook"
+                  aria-label="Scoala de soferi Auto Speed Facebook"
+                  title="Scoala de soferi Auto Speed Facebook"
                   className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover-elevate active-elevate-2 transition-all"
                   data-testid="button-facebook"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a
+                {/*<a
                   href="https://www.instagram.com/scoala_de_soferi_x_drive"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="X-Drive Instagram"
-                  title="X-Drive Instagram"
+                  aria-label="Scoala de soferi Auto Speed Instagram"
+                  title="Scoala de soferi Auto Speed Instagram"
                   className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover-elevate active-elevate-2 transition-all"
                   data-testid="button-instagram"
                 >
                   <Instagram className="w-5 h-5" />
-                </a>
+                </a>*/}
               </div>
             </Card>
           </div>
@@ -236,14 +236,14 @@ export default function Contact() {
 
         <Card className="overflow-hidden">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.8!2d25.9886!3d44.4847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201f0a7a0a0a0%3A0x0!2sStrada%20Preot%20Sebe%20Costin%2048%2C%20Chiajna!5e0!3m2!1sen!2sro!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.675895456928!2d26.024742376726437!3d44.43981010120084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201a52296af3d%3A0xd9b6e21c988df28a!2sBulevardul%20Uverturii%2098%2C%20Bucure%C8%99ti%2060937!5e0!3m2!1sro!2sro!4v1762198255654!5m2!1sro!2sro"
             width="100%"
             height="400"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Locația X-Drive - Strada Preot Sebe Costin 48, Chiajna"
+            title="Locația Scoala de soferi Auto Speed - Strada Preot Sebe Costin 48, Chiajna"
           />
         </Card>
       </div>

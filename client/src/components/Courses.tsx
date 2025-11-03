@@ -32,7 +32,7 @@ export default function Courses() {
       ],
       duration: "La alegere"
     },
-    {
+    /*{
       icon: BookOpen,
       title: "Curs Teoretic",
       description: "Pregătire teoretică intensivă pentru examenul auto",
@@ -43,7 +43,7 @@ export default function Courses() {
         "Suport online"
       ],
       duration: "3-4 săptămâni"
-    }
+    }*/
   ];
 
   return (

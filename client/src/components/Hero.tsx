@@ -19,7 +19,7 @@ export default function Hero() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-20 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-          Învață să conduci cu încredere<br />la X-Drive!
+          Învață să conduci cu încredere<br />la Scoala de soferi Auto Speed!
         </h1>
         
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">

@@ -65,14 +65,14 @@ export default function Navigation() {
               className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-md px-3 py-2 transition-all"
               data-testid="button-logo"
             >
-              <img src={logoUrl} alt="X-Drive Logo" className="h-12 w-auto" />
+              <img src={logoUrl} alt="Scoala de soferi Auto Speed Logo" className="h-12 w-auto" />
             </button>
 
             {/* phone icon - only visible from md up, minimal gap so it doesn't push layout */}
             <a
-              href="tel:+40724111987"
-              aria-label="Sună X-Drive"
-              title="Sună X-Drive"
+              href="tel:+40785125125"
+              aria-label="Sună Scoala de soferi Auto Speed"
+              title="Sună Scoala de soferi Auto Speed"
               className={`hidden md:inline-flex items-center justify-center p-2 rounded-md transition-all hover-elevate active-elevate-2 ${
                 isScrolled ? "bg-primary/10" : "bg-primary/10/70"
               }`}

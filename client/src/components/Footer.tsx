@@ -81,10 +81,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="mb-4">
-              <img src={logoUrl} alt="X-Drive" className="h-16 w-auto" />
+              <img src={logoUrl} alt="Scoala de soferi Auto Speed" className="h-16 w-auto" />
             </div>
             <p className="text-muted-foreground mb-4">
-              Școala ta de încredere pentru obținerea permisului de conducere în Chiajna, București.
+              Școala ta de încredere pentru obținerea permisului de conducere în București.
             </p>
           </div>
 
@@ -114,14 +114,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <a href="tel:+40724111987" className="text-muted-foreground hover:text-primary transition-colors">
-                  +40 724 111 987
+                <a href="tel:+40785125125" className="text-muted-foreground hover:text-primary transition-colors">
+                  +40 785 125 125
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <a href="mailto:contact@scoaladesoferixdrive.ro" className="text-muted-foreground hover:text-primary transition-colors">
-                  contact@scoaladesoferixdrive.ro
+                <a href="mailto:autospeeddrive@yahoo.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  autospeeddrive@yahoo.com
                 </a>
               </li>
             </ul>
@@ -131,34 +131,34 @@ export default function Footer() {
             <h3 className="font-semibold text-foreground mb-4">Urmărește-ne</h3>
             <div className="flex gap-3">
               <a
-                href="https://www.facebook.com/scoaladesoferixdrive"
+                href="https://www.facebook.com/autospeeddrive"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="X-Drive Facebook"
-                title="X-Drive Facebook"
+                aria-label="Scoala de soferi Auto Speed Facebook"
+                title="Scoala de soferi Auto Speed Facebook"
                 className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover-elevate active-elevate-2 transition-all"
                 data-testid="footer-facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a
+              {/*<a
                 href="https://www.instagram.com/scoala_de_soferi_x_drive"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="X-Drive Instagram"
-                title="X-Drive Instagram"
+                aria-label="Scoala de soferi Auto Speed Instagram"
+                title="Scoala de soferi Auto Speed Instagram"
                 className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover-elevate active-elevate-2 transition-all"
                 data-testid="footer-instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
+              </a>*/}
             </div>
           </div>
         </div>
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground text-center md:text-left">
-            © {new Date().getFullYear()} X-Drive Școala de Șoferi. Toate drepturile rezervate.
+            © {new Date().getFullYear()} Scoala de soferi Auto Speed. Toate drepturile rezervate.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <button

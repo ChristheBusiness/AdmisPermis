@@ -4,7 +4,7 @@ import About from "@/components/About";
 import Courses from "@/components/Courses";
 import Testimonials from "@/components/Testimonials";
 
-import CTA from "@/components/CTA";
+/*import CTA from "@/components/CTA";*/
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,7 +18,7 @@ export default function Home() {
         <Courses />
         <Testimonials />
         
-        <CTA />
+        {/*<CTA />*/}
         <Contact />
       </main>
       <Footer />
