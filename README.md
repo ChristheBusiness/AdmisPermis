@@ -1,4 +1,4 @@
-# XDriveSite — local dev & deploy notes
+# PermisAdmisSite — local dev & deploy notes
 
 This repository contains a React/Vite site with a contact form powered by Netlify Forms. It's designed for simple deployment with no backend server required.
 
@@ -6,7 +6,7 @@ This repository contains a React/Vite site with a contact form powered by Netlif
 1. Open PowerShell and change into the project folder:
 
 ```powershell
-cd C:\Users\Cristian\Desktop\XDriveSite\XDriveSite
+cd \PermisAdmisSite
 ```
 
 2. Install dependencies (if you haven't already):
@@ -19,6 +19,18 @@ npm install
 
 ```powershell
 npm run dev
+```
+
+3. Stop the dev server:
+
+```powershell
+CTR + C
+```
+
+4. Test build before publishing:
+
+```powershell
+npm run build
 ```
 
 ## Contact Form
@@ -42,6 +54,7 @@ The contact form uses Netlify Forms for handling form submissions. Form submissi
 npm run dev     # Start development server
 npm run build   # Build for production
 npm run preview # Preview production build locally
+CTRL + C        # Stop the dev server
 
 # Deployment
 git push        # Push changes to GitHub
