@@ -1,0 +1,13 @@
+[build]
+  base = "."
+  command = "npm run build"
+  publish = "client/dist"
+
+[forms]
+  # Netlify Forms configuration
+  [forms.contact]
+    name = "contact"
+
+[context.production.environment]
+  # Example: if your frontend will call the API, set VITE_API_URL here
+  # VITE_API_URL = "https://api.example.com"
