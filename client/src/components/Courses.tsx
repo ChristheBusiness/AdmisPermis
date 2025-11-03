@@ -58,9 +58,9 @@ export default function Courses() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {courses.map((course, index) => (
-            <Card key={index} className="p-6 md:p-8 flex flex-col hover-elevate transition-all">
+            <Card key={index} className="w-full max-w-md p-6 md:p-8 flex flex-col hover-elevate transition-all">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <course.icon className="w-7 h-7 text-primary" />
@@ -93,8 +93,7 @@ export default function Courses() {
                   if (course.title === "Categoria B") {
                     setLocation("/CategoriaB"); // navigate to CatB page
                   } else {
-                    const contactSection = document.getElementById("contact");
-                    contactSection?.scrollIntoView({ behavior: "smooth" });
+                    setLocation("/OreSuplimentare"); // navigate to CatB page
                   }
                 }}
                 data-testid={`button-course-${index}`}

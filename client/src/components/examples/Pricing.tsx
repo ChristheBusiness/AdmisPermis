@@ -1,5 +1,5 @@
-import Pricing from '../NotUsedPricing'
+import PriceEx from '../Pricing'
 
 export default function PricingExample() {
-  return <Pricing />
+  return <PriceEx />
 }

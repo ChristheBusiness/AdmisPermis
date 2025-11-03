@@ -10,6 +10,8 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [location, setLocation] = useLocation();
+  const isHome = location === "/";
+  const isSolid = isScrolled || !isHome;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,16 +28,12 @@ export default function Navigation() {
   };
 
   const handleMenuClick = (id: string) => {
-    if (id === "Preturi") {
-      if (location !== "/Preturi") {
-        setLocation("/Preturi");
-        setIsOpen(false);
-      }
-    } else if (location === "/") {
-      scrollToSection(id);
+    const targetId = id === "Preturi" ? "tarife" : id;
+    if (location === "/") {
+      scrollToSection(targetId);
     } else {
       setLocation("/");
-      setTimeout(() => scrollToSection(id), 300);
+      setTimeout(() => scrollToSection(targetId), 300);
     }
   };
 
@@ -50,7 +48,7 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent"
+        isSolid ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -74,11 +72,11 @@ export default function Navigation() {
               aria-label="Sună Scoala de soferi Auto Speed"
               title="Sună Scoala de soferi Auto Speed"
               className={`hidden md:inline-flex items-center justify-center p-2 rounded-md transition-all hover-elevate active-elevate-2 ${
-                isScrolled ? "bg-primary/10" : "bg-primary/10/70"
+                isSolid ? "bg-primary/10" : "bg-primary/10/70"
               }`}
               data-testid="nav-phone-icon"
             >
-              <Phone className={`${isScrolled ? "text-primary" : "text-white"} w-5 h-5`} />
+              <Phone className={`${isSolid ? "text-primary" : "text-white"} w-5 h-5`} />
             </a>
           </div>
 
@@ -89,7 +87,7 @@ export default function Navigation() {
                 key={item.id}
                 onClick={() => handleMenuClick(item.id)}
                 className={`font-medium transition-colors hover-elevate active-elevate-2 px-3 py-2 rounded-md ${
-                  isScrolled ? "text-foreground" : "text-white"
+                  isSolid ? "text-foreground" : "text-white"
                 }`}
                 data-testid={`link-${item.id}`}
               >
@@ -104,7 +102,7 @@ export default function Navigation() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className={isScrolled ? "text-foreground" : "text-white"}
+              className={isSolid ? "text-foreground" : "text-white"}
             >
               {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </Button>
@@ -121,7 +119,7 @@ export default function Navigation() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`md:hidden p-2 rounded-md hover-elevate active-elevate-2 ${
-              isScrolled ? "text-foreground" : "text-white"
+              isSolid ? "text-foreground" : "text-white"
             }`}
             data-testid="button-menu-toggle"
           >

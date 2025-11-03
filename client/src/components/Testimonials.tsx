@@ -1,27 +1,37 @@
+import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Star, User } from "lucide-react";
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      name: "Maria Ionescu",
-      course: "Categoria B",
-      text: "Instructorii sunt foarte profesioniști și răbdători. Am reușit să iau permisul din prima încercare! Recomand cu mare încredere Scoala de soferi Auto Speed.",
-      rating: 5
-    },
-    {
-      name: "Alexandru Popa",
-      course: "Categoria B",
-      text: "Cea mai bună decizie! Program flexibil, mașini moderne și instructori dedicați. M-am simțit în siguranță de la prima lecție.",
-      rating: 5
-    },
-    {
-      name: "Elena Stan",
-      course: "Categoria B",
-      text: "Atmosfera este prietenoasă, iar instructorii sunt foarte calmi și te îndrumă pas cu pas. Merită fiecare leu investit!",
-      rating: 5
-    }
+  // Post URLs (not plugin URLs). SDK will render auto-height embeds.
+  const postUrls = [
+    "https://www.facebook.com/daria.stefania3347/posts/pfbid0AXiXSizWRFZ9ZwwucDbdu8tGJu63FEMtt62GS57i42YvpZiX9v6DyFdt6MtGs4Mml",
+    "https://www.facebook.com/alinnicolae.socol/posts/pfbid0ses9tzQN1SzcjphhPYf29ifn8fsBX4JCGAZoyn4oVDZ9ZAPBpS7HTD2ScsCgm9rol",
+    "https://www.facebook.com/robert.halfon.98/posts/pfbid023mS6Nkiz83DzGJRoTCc4vXVufo6ZGyi1RrEvNht5oL58XGDvHhLZivPPEzE67bHvl",
   ];
+
+  useEffect(() => {
+    const w = window as any;
+    function parse() {
+      try { w.FB && w.FB.XFBML && w.FB.XFBML.parse(); } catch {}
+    }
+    // Load SDK once
+    if (!w.FB) {
+      if (!document.getElementById("facebook-jssdk")) {
+        const s = document.createElement("script");
+        s.id = "facebook-jssdk";
+        s.async = true;
+        s.defer = true;
+        s.crossOrigin = "anonymous";
+        s.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0";
+        s.onload = parse;
+        document.body.appendChild(s);
+      }
+    } else {
+      parse();
+    }
+    // Re-parse when component mounts/updates
+    setTimeout(parse, 50);
+  }, []);
 
   return (
     <section className="py-12 md:py-20 lg:py-24 bg-background">
@@ -35,39 +45,57 @@ export default function Testimonials() {
           </p>
         </div>
 
+        <div id="fb-root" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-6 md:p-8 flex flex-col hover-elevate transition-all">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
-                  {/* Placeholder pentru poze - va fi înlocuit cu imagini reale */}
-                  <User className="w-8 h-8 text-muted-foreground" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-foreground text-lg mb-1">
-                    {testimonial.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    {testimonial.course}
-                  </p>
-                  <div className="flex gap-1">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className="w-4 h-4 fill-primary text-primary" 
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              <p className="text-muted-foreground leading-relaxed flex-grow">
-                "{testimonial.text}"
-              </p>
+          {postUrls.map((href, index) => (
+            <Card key={index} className="p-0 overflow-hidden hover-elevate transition-all">
+              <PostEmbed href={href} />
             </Card>
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function PostEmbed({ href }: { href: string }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [width, setWidth] = useState<number>(500);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const w = new (window as any).ResizeObserver((entries: any[]) => {
+      for (const entry of entries) {
+        const cw = Math.floor(entry.contentRect.width);
+        // FB requires between 320 and 750px typically; clamp to safe range
+        const clamped = Math.max(320, Math.min(700, cw));
+        if (clamped !== width) setWidth(clamped);
+      }
+    });
+    w.observe(el);
+    return () => w.disconnect();
+  }, [width]);
+
+  useEffect(() => {
+    // Re-parse only this container when width changes
+    const w = window as any;
+    try {
+      if (w.FB && w.FB.XFBML && containerRef.current) {
+        w.FB.XFBML.parse(containerRef.current);
+      }
+    } catch {}
+  }, [width]);
+
+  return (
+    <div ref={containerRef} className="w-full" style={{ lineHeight: 0 }}>
+      <div
+        className="fb-post"
+        data-href={href}
+        data-show-text="true"
+        data-width={String(width)}
+      />
+    </div>
   );
 }

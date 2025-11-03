@@ -113,20 +113,6 @@ export default function InfoB() {
             </li>
           </ul>
         </Card>
-
-        {/* === CONTAINER 3: Link către Preturi === */}
-        <div className="text-center border-t border-border pt-8">
-          <p className="text-muted-foreground mb-4">
-            Prețurile variază în funcție de mașina aleasă și de pachetul selectat.
-          </p>
-          <Button
-            variant="default"
-            onClick={() => setLocation("/Preturi")}
-            className="hover-elevate active-elevate-2"
-          >
-            Vezi Preturi
-          </Button>
-        </div>
       </div>
     </section>
   );

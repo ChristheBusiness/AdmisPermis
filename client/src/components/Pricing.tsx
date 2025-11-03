@@ -2,47 +2,56 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
+import Golan from "@assets/img_cars/DaciaLogan.jpg";
+import Fiesta from "@assets/img_cars/fordfiesta.jpg";
 
 export default function Pricing() {
   const packages = [
     {
-      name: "Pachet Start",
-      price: "2.800",
+      name: "Ford Fiesta",
+      price: "2.500",
       description: "Ideal pentru începători",
       features: [
-        "20 ore de condus",
+        "30 ore de condus",
         "Curs teoretic complet",
         "Materiale de studiu",
+        "Cutie manuală",
+        "Benzina",
         "1 examen simulator"
       ],
-      recommended: false
+      recommended: false,
+      image: Fiesta
     },
     {
-      name: "Pachet Standard",
-      price: "3.200",
+      name: "Sandero Stepway",
+      price: "2.500",
       description: "Cel mai popular pachet",
       features: [
         "30 ore de condus",
         "Curs teoretic complet",
         "Materiale de studiu",
+        "Cutie manuală",
+        "Diesel",
         "3 examene simulator",
         "Asistență la examen"
       ],
-      recommended: true
+      recommended: true,
+      image: Golan
     },
     {
-      name: "Pachet Premium",
-      price: "3.800",
+      name: "Hyundai Accent",
+      price: "2.500",
       description: "Pentru cei care vor siguranță maximă",
       features: [
-        "40 ore de condus",
+        "30 ore de condus",
         "Curs teoretic complet",
-        "Materiale de studiu premium",
+        "Materiale de studiu ",
+        "Cutie automată",
         "Examene simulator nelimitate",
-        "Asistență la examen",
-        "Instructor dedicat"
+        "Asistență la examen"
       ],
-      recommended: false
+      recommended: false,
+      image: Golan
     }
   ];
 
@@ -51,10 +60,10 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Tarife Transparente
+            Masini disponibile
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Fără costuri ascunse. Alege pachetul potrivit pentru tine.
+            Fără costuri ascunse. Alege masina potrivita pentru tine.
           </p>
         </div>
 
@@ -85,6 +94,16 @@ export default function Pricing() {
                   <span className="text-4xl font-bold text-foreground">{pkg.price}</span>
                   <span className="text-muted-foreground">RON</span>
                 </div>
+              </div>
+
+              {/* Car photo placeholder */}
+              /<div className="mb-6 aspect-video w-full rounded-xl bg-muted overflow-hidden">
+                <img
+                  src={pkg.image || "/attached_assets/img_cars/DaciaLogan.jpg"}
+                  alt={`Fotografie ${pkg.name}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
 
               <ul className="space-y-3 mb-8 flex-grow">
