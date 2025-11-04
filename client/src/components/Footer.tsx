@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useLocation } from "wouter";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import logoUrl from "@assets/images/logox.png";
+import { set } from "date-fns";
 
 type QuickLink = {
   label: string;
@@ -71,7 +72,7 @@ export default function Footer() {
     { label: "Cursuri", id: "cursuri" },
     // Preturi is a separate page in your app; route used so it navigates to /tarife.
     // If your route is /Preturi or /Prices change it here.
-    { label: "Preturi", route: "/Preturi", id: "Preturi" },
+    { label: "Preturi", id: "tarife" },
     { label: "Contact", id: "contact" },
   ];
 
@@ -162,13 +163,13 @@ export default function Footer() {
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <button
-              onClick={() => console.log("Privacy policy clicked")}
+              onClick={() => setLocation("/politica-confidentialitate")}
               className="hover:text-primary transition-colors"
             >
               Politica de Confidențialitate
             </button>
             <button
-              onClick={() => console.log("Terms clicked")}
+              onClick={() => setLocation("/termeni-conditii")}
               className="hover:text-primary transition-colors"
             >
               Termeni și Condiții

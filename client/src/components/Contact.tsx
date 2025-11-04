@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 
@@ -14,8 +16,30 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
+    car: "",
+    extra: false
   });
+
+  useEffect(() => {
+    const applyCarFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const car = params.get("car");
+      const extra = params.get("extra");
+      if (car) {
+        setFormData((prev) => ({ ...prev, car }));
+      }
+      if (extra !== null) {
+        const extraBool = extra === "true" || extra === "1" || extra === "yes" || extra === "on" || extra === "";
+        setFormData((prev) => ({ ...prev, extra: extraBool }));
+      }
+    };
+
+    applyCarFromUrl();
+    const onHash = () => applyCarFromUrl();
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,7 +56,7 @@ export default function Contact() {
         title: "Mesaj trimis cu succes!",
         description: "Vă vom contacta în cel mai scurt timp posibil.",
       });
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", message: "", car: "", extra: false });
     } catch (error) {
       toast({
         title: "Eroare",
@@ -143,6 +167,43 @@ export default function Contact() {
                       required
                       data-testid="input-phone"
                     />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="car" className="mb-2 block">
+                      Selecteaza masina
+                    </Label>
+                    <Select
+                      value={formData.car}
+                      onValueChange={(value) => setFormData({ ...formData, car: value })}
+                    >
+                      <SelectTrigger id="car" className="w-full">
+                        <SelectValue placeholder="Selecteaza masina (optional)" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value=" ">Selecteaza masina (optional)</SelectItem>
+                        <SelectItem value="Dacia Stepway">Dacia Stepway</SelectItem>
+                        <SelectItem value="Ford Fiesta">Ford Fiesta</SelectItem>
+                        <SelectItem value="Hyundai Accent">Hyundai Accent</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <input type="hidden" name="car" value={formData.car} />
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-6 md:pt-8">
+                    <Checkbox
+                      id="extra"
+                      checked={formData.extra}
+                      onCheckedChange={(checked) =>
+                        setFormData({ ...formData, extra: Boolean(checked) })
+                      }
+                    />
+                    <Label htmlFor="extra" className="leading-none">
+                      Sedinta suplimentare
+                    </Label>
+                    <input type="hidden" name="extra_session" value={formData.extra ? "true" : "false"} />
                   </div>
                 </div>
 

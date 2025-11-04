@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
 import Golan from "@assets/img_cars/DaciaLogan.jpg";
 import Fiesta from "@assets/img_cars/fordfiesta.jpg";
+import Automata from "@assets/img_cars/HyundaiAccent.jpg";
 
 export default function Pricing() {
   const packages = [
@@ -51,7 +52,7 @@ export default function Pricing() {
         "Asistență la examen"
       ],
       recommended: false,
-      image: Golan
+      image: Automata
     }
   ];
 
@@ -119,6 +120,13 @@ export default function Pricing() {
                 variant={pkg.recommended ? "default" : "outline"}
                 className="w-full"
                 onClick={() => {
+                  const params = new URLSearchParams(window.location.search);
+                  const carValue = pkg.name === "Sandero Stepway" ? "Dacia Stepway" : pkg.name;
+                  params.set("car", carValue);
+                  const newUrl = `${window.location.pathname}?${params.toString()}#contact`;
+                  window.history.pushState({}, "", newUrl);
+                  window.dispatchEvent(new HashChangeEvent("hashchange"));
+
                   const contactSection = document.getElementById("contact");
                   contactSection?.scrollIntoView({ behavior: "smooth" });
                 }}

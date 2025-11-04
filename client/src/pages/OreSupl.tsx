@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import InfoB from "@/components/InfoB";
+import SupHour from "@/components/SupHour";
 import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -11,7 +11,7 @@ export default function CatB() {
     <div className="min-h-screen">
       <Navigation />
       <main id="acasa">
-        <InfoB />
+        <SupHour />
         <Pricing />
         <Contact />
         <ScrollToTop />

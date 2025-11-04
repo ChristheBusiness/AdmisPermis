@@ -91,9 +91,9 @@ export default function Courses() {
                 className="w-full"
                 onClick={() => {
                   if (course.title === "Categoria B") {
-                    setLocation("/CategoriaB"); // navigate to CatB page
+                    setLocation("/categoria-b"); // navigate to CatB page
                   } else {
-                    setLocation("/OreSuplimentare"); // navigate to CatB page
+                    setLocation("/ore-suplimentare"); // navigate to CatB page
                   }
                 }}
                 data-testid={`button-course-${index}`}

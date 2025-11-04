@@ -5,13 +5,19 @@ import Home from "@/pages/Home";
 import CatB from "@/pages/PgCatB";
 import OreSupl from "@/pages/OreSupl";
 import NotFound from "@/pages/not-found";
+import Tos from "@/pages/tos";
+import Privacy from "@/pages/privacy";
+
+
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/CategoriaB" component={CatB} />
-      <Route path="/OreSuplimentare" component={OreSupl} />
+      <Route path="/categoria-b" component={CatB} />
+      <Route path="/ore-suplimentare" component={OreSupl} />
+      <Route path="/termeni-conditii" component={Tos} />
+      <Route path="/politica-confidentialitate" component={Privacy} />
       <Route component={NotFound} />
     </Switch>
   );

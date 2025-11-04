@@ -48,10 +48,6 @@
 
   --popover-border: 0 0% 84%;
 
- /* --primary: 60 100% 50%; */
-
- /*--primary: 42 75% 50%;  cooler yellow(Like a honey yellow)*/
-
   --primary: 10 95% 50%;
 
   --primary-foreground: 60 10% 10%;
@@ -60,13 +56,13 @@
 
   --secondary-foreground: 0 2% 18%;
 
-  --muted: 60 8% 90%;
+  --muted: 60 8% 70%;
 
-  --muted-foreground: 60 8% 30%;
+  --muted-foreground: 10 8% 30%;
 
-  --accent: 60 12% 88%;
+  --accent: 10 12% 88%;
 
-  --accent-foreground: 60 12% 88%;
+  --accent-foreground: 10 22% 68%;
 
   --destructive: 0 84% 42%;
 
@@ -74,7 +70,7 @@
 
 
   --input: 0 0% 75%;
-  --ring: 60 100% 50%;
+  --ring: 0 100% 50%;
   --chart-1: 60 100% 40%;
   --chart-2: 210 80% 38%;
   --chart-3: 160 65% 32%;
@@ -181,19 +177,19 @@
 
   --muted: 60 6% 18%;
 
-  --muted-foreground: 60 6% 82%;
+  --muted-foreground: 10 6% 82%;
 
-  --accent: 60 10% 17%;
+  --accent: 10 10% 17%;
 
-  --accent-foreground: 60 10% 90%;
+  --accent-foreground: 10 10% 90%;
 
   --destructive: 0 80% 40%;
 
   --destructive-foreground: 0 10% 98%;
 
   --input: 0 0% 32%;
-  --ring: 60 100% 50%;
-  --chart-1: 60 100% 60%;
+  --ring: 10 100% 30%;
+  --chart-1: 10 100% 35%;
   --chart-2: 210 85% 68%;
   --chart-3: 160 70% 62%;
   --chart-4: 280 75% 70%;
@@ -239,6 +235,7 @@
 }
 
 @layer base {
+
   * {
     @apply border-border;
   }
