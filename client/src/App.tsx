@@ -6,7 +6,7 @@ import CatB from "@/pages/PgCatB";
 import OreSupl from "@/pages/OreSupl";
 import NotFound from "@/pages/not-found";
 import Tos from "@/pages/tos";
-import Privacy from "@/pages/Privacy";
+import Privacy from "@/pages/Privaci";
 
 
 
