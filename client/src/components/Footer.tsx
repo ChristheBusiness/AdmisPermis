@@ -2,6 +2,8 @@ import { useCallback } from "react";
 import { useLocation } from "wouter";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import logoUrl from "@assets/images/logox.png";
+import chrisLogo from "@assets/images/chris.png";
+import chrisLogoDark from "@assets/images/chrisw.png";
 import { set } from "date-fns";
 
 type QuickLink = {
@@ -175,6 +177,15 @@ export default function Footer() {
               Termeni și Condiții
             </button>
           </div>
+        </div>
+
+        <div className="mt-6 flex items-center justify-center gap-3 text-muted-foreground">
+          <a href="https://www.facebook.com/autospeeddrive"
+            className="flex items-center gap-2">
+            <img src={chrisLogo} alt="Chris Design logo" className="h-6 w-auto opacity-90 block dark:hidden" />
+            <img src={chrisLogoDark} alt="Chris Design logo" className="h-6 w-auto opacity-90 hidden dark:block" />
+            <span className="text-sm">Web design by Chris Design</span>
+          </a>
         </div>
       </div>
     </footer>
